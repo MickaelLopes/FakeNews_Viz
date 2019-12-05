@@ -6,7 +6,8 @@ var linear_tree = d3.tree()
     .separation(function(a, b) { return (a.parent == b.parent ? 1 : 2) / a.depth; });
 
 function draw_linear_tree_graph(tweet_id){
-
+    zoom_area_function = 0;
+    relatif_angle = 0 ;
     filter_tweets_set = tweets_set.filter(
                 function(d){
                     return (d.id == "News" || d.id.includes(tweet_id));
@@ -79,7 +80,9 @@ function draw_linear_tree_graph(tweet_id){
                 .style("stroke-width","3px");
 
     svg.on("contextmenu",function(){
-        g.attr("transform","translate(" + (width / 2 ) + "," + (height / 2) + ")")
+        g.attr("transform","translate(" + (width / 2 ) + "," + (height / 2) + ")");
+        svg.selectAll('.node-level-1, .link, circle')
+            .remove();
         draw_radial_tree_graph(tweets_set)});
     svg.on("wheel",null);
     svg.selectAll(".link")

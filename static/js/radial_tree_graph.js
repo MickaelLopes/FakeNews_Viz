@@ -30,32 +30,6 @@ var tip = d3.tip()
 svg.call(tip);
 
 
-svg.on('contextmenu',function(){
-
-  if (zoom_area_function == 0) {
-      var center_coordinates = d3.select(".root > circle")
-                             .node().getBoundingClientRect(),
-      coordinates = d3.mouse(this);
-      go_to_zoom_mode(center_coordinates, coordinates);
-      zoom_area_function = 1;
-  } else {
-      go_to_unzoom_mode();
-      zoom_area_function = 0;
-  }
-});
-
-svg.on('wheel', function(){
-  if (zoom_area_function == 1) {
-    rotation_angle = event.deltaY
-    relatif_angle += rotation_angle/3
-    d3.selectAll(".node-level-1 > circle, .node-level-2 > circle, .root > circle")
-      .attr("transform",function(d){return "translate(" + project(d.x, d.y,relatif_angle, 3, cx + radius, 0) +") ";});
-  d3.selectAll(".link")
-      .attr("d", function(d) {return path(d.x,d.y,d.parent.x,d.parent.y,relatif_angle, 3 , cx + radius, 0);})
-      }
-})
-
-
 var stratify = d3.stratify()
     .parentId(function(d) {
       var ids_list = d.id.split('.');
@@ -75,12 +49,6 @@ function draw_radial_tree_graph(data){
 
   var root = circular_tree(stratify(data));
 
-
-
-
-
-
-
   node_root = root.descendants().filter(function(d) {return d.depth == 0}).pop();
   nodes_tweet = root.descendants().filter(function(d) {return d.depth == 1});
   nodes_retweet = root.descendants().filter(function(d) {return d.depth == 2});
@@ -90,17 +58,18 @@ function draw_radial_tree_graph(data){
 
 
 
-
   // Bind data to root element and create root circle
   g.data([node_root])
-      .attr("id", d => "node-" + d.id)
       .append("circle")
-        .attr('r',5);
+      .attr("id", d => "node-" + d.id)
+        .attr('r',5)
+        .attr('transform','translate(0,0)');
 
   // Create first level node (tweets):
   nodes_1 = g.selectAll(".node .node-level-1")
     .data(nodes_tweet)
-    .enter().append('g')
+    .enter()
+      .append('g')
       .attr('class', 'node node-level-1')
       .attr('id', d => 'node-'+ d.id);
 
@@ -139,7 +108,30 @@ function draw_radial_tree_graph(data){
                     return "translate(" + project(d.x, d.y) + ")";
               });
         });
+  svg.on('contextmenu',function(){
 
+  if (zoom_area_function == 0) {
+      var center_coordinates = d3.select(".root > circle")
+                             .node().getBoundingClientRect(),
+      coordinates = d3.mouse(this);
+      go_to_zoom_mode(center_coordinates, coordinates);
+      zoom_area_function = 1;
+  } else {
+      go_to_unzoom_mode();
+      zoom_area_function = 0;
+  }
+});
+
+svg.on('wheel', function(){
+  if (zoom_area_function == 1) {
+    rotation_angle = event.deltaY
+    relatif_angle += rotation_angle/3
+    d3.selectAll(".node-level-1 > circle, .node-level-2 > circle, .root > circle")
+      .attr("transform",function(d){return "translate(" + project(d.x, d.y,relatif_angle, 3, cx + radius, 0) +") ";});
+  d3.selectAll(".link")
+      .attr("d", function(d) {return path(d.x,d.y,d.parent.x,d.parent.y,relatif_angle, 3 , cx + radius, 0);})
+      }
+})
 }
 
 
