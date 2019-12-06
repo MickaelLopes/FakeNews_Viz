@@ -1,0 +1,17 @@
+.node_info{
+    background-color: white;
+    position:relative;
+}
+
+#tip{
+    top: 0px;
+    left:0px;
+    position: relative;
+    background-color: white;
+}
+
+#tip.n:after{
+  margin: -1px 0 0 0;
+  top: 0;
+  left: 0;
+}

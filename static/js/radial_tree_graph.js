@@ -21,25 +21,40 @@ var svg = d3.select(".tree_graph")
               .attr("class", 'node root');
 
 
-var tip = d3.tip()
-            .attr('class', 'd3-tip')
-            // .offset([-tip_height_offset+10, 0])
-            .html(function(d) {return "<strong>" + d.id +"</strong>;"});
+// var tip = d3.tip()
+//             .attr('id', 'tip')
+//             .html(function(d) {return "<strong>" + d.id +"</strong>;"});
+//             // .rootElement(document.getElementById('node_info'))
+//             // .offset([10, 0])
 
+// svg.call(tip);
 
-svg.call(tip);
-
+// document.getElementById('node_info').appendChild(
+//   document.getElementById('tip')
+// );
 
 var stratify = d3.stratify()
     .parentId(function(d) {
-      var ids_list = d.id.split('.');
-      ids_list.pop();
-      return ids_list.pop();
+      if (d.parent == ""){
+        return undefined;
+      }else {
+        return d.parent;
+      }
     })
     .id(function(d){
-      // console.log(d.id.split('.').pop());
-      return d.id.split('.').pop();
+      return d.id;
     });
+
+// var stratify = d3.stratify()
+//     .parentId(function(d) {
+//       var ids_list = d.id.split('.');
+//       ids_list.pop();
+//       return ids_list.pop();
+//     })
+//     .id(function(d){
+//       // console.log(d.id.split('.').pop());
+//       return d.id.split('.').pop();
+//     });
 
 var circular_tree = d3.tree()
     .size([360, radius]) // size([degree, radius]) because we transform linear in circular
@@ -47,6 +62,7 @@ var circular_tree = d3.tree()
 
 function draw_radial_tree_graph(data){
 
+  console.log(data)
   var root = circular_tree(stratify(data));
 
   node_root = root.descendants().filter(function(d) {return d.depth == 0}).pop();
@@ -98,8 +114,15 @@ function draw_radial_tree_graph(data){
         nodes_2.append('path')
                 .attr("class", "link")
                 .attr("d", function(d) {return path(d.x,d.y,d.parent.x,d.parent.y);})
-                .on('mouseover', d => highlight_path(d,2))
-                .on('mouseout', d => unhighlight_path(d,2))
+                .on('mouseover', function(d){
+                                  mouseover(d);
+                                  // tip.show(d)
+                                  highlight_path(d,2)
+                })
+                .on('mouseout', function(d){
+                                  // tip.hide(d)
+                                  unhighlight_path(d,2)
+                })
                 .on('click', d => draw_linear_tree_graph(d.parent.id));
 
         nodes_2.append("circle")
