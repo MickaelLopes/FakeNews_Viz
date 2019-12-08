@@ -1,5 +1,11 @@
+ .node_info_box > header {
+    background :linear-gradient(180deg,#39485a,#293441 50%,#192129 51%,#192330);
+    padding : 5px 20px;
+    color : white;
+}
+
 .node_info{
-    background-color: white;
+    background-color: #f1f1f1;
     position:relative;
 }
 
@@ -7,7 +13,7 @@
     top: 0px;
     left:0px;
     position: relative;
-    background-color: white;
+    background-color: #f1f1f1;
 }
 
 #tip.n:after{

@@ -8,9 +8,10 @@ var linear_tree = d3.tree()
 function draw_linear_tree_graph(tweet_id){
     zoom_area_function = 0;
     relatif_angle = 0 ;
+
     filter_tweets_set = tweets_set.filter(
                 function(d){
-                    return (d.id == "News" || d.id.includes(tweet_id));
+                    return (d.id == "News" || d.id == tweet_id || d.parent == tweet_id)
                 });
 
     var linear_root = linear_tree(stratify(filter_tweets_set))

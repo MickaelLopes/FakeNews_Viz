@@ -1,8 +1,8 @@
-var Tooltip_tweet = d3.select("#node_info")
+var Tooltip_tweet = d3.select("#node_tip_info")
                         .append("div")
                         .style("opacity", 0)
                         .attr("class","tooltip")
-                        .style("background-color", "white")
+                        .style("background-color", "black")
                         .style("width","250px")
                         .style("height","150px");
 function mouseover(d){

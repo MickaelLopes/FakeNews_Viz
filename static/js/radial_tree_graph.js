@@ -1,10 +1,10 @@
 // default values
 
-const node_internal_default_color = '#555' // To synch with css
-    , node_default_color = '#999' // To synch with css
-    , path_default_color = '#555' // To synch with css
-    , node_highlight_color = '#8f97b8'
-    , path_highlight_color = '#70758c'
+const node_internal_default_color = '#EF7325' // To synch with css
+    , node_default_color = '#E56A23' // To synch with css
+    , path_default_color = '#E56A23' // To synch with css
+    , node_highlight_color = '#FFA500'
+    , path_highlight_color = '#FFA500'
     , unzoom_factor = 0.98;
 
 var  relatif_angle = 0

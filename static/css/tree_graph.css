@@ -10,7 +10,7 @@
 }
 
 .node circle {
-  fill: #999;
+  fill: #E56A23;
 }
 
 .node text {
@@ -19,7 +19,7 @@
 
 
 .node-internal > circle  {
-  fill: #555;
+  fill: #EF7325;
 }
 
 
@@ -30,7 +30,7 @@
 
 .link {
   fill: none;
-  stroke: #555;
+  stroke: #E56A23;
   stroke-opacity: 0.4;
   stroke-width: 1.5px;
 }
