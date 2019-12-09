@@ -1,13 +1,29 @@
+ .node_info_box {
+    width: 300px;
+    height: 250px;
+}
+
  .node_info_box > header {
     background :linear-gradient(180deg,#39485a,#293441 50%,#192129 51%,#192330);
     padding : 5px 20px;
     color : white;
+    height: 40px;
+}
+
+.box_info {
+    blackground : white;
+    border: thick double blue;
+    height: 200px;
 }
 
 .node_info{
+    padding: 5px;
     background-color: #f1f1f1;
-    position:relative;
+    border-radius : 30px;
+    height: 100%;
+    font-size: 12px;
 }
+
 
 #tip{
     top: 0px;

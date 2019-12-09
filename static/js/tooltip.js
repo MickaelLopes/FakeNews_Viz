@@ -1,13 +1,13 @@
 var Tooltip_tweet = d3.select("#node_tip_info")
                         .append("div")
                         .style("opacity", 0)
-                        .attr("class","tooltip")
-                        .style("background-color", "black")
-                        .style("width","250px")
-                        .style("height","150px");
+                        .attr("class","tooltip");
 function mouseover(d){
-    console.log("yo")
+    var date = new Date(Date.parse(d.parent.data.created_at, "ddd MMM DD HH:mm:ss +0000 YYYY"));
     Tooltip_tweet
       .style("opacity", 1)
-      .html("<strong>" + d.parent.data.screen_name +"</strong>;");
+      .html("<span><strong>Username</strong>: " + d.parent.data.screen_name + "<br>"
+                + "<strong>Created at</strong>: " + date.toLocaleString() + "<br>"
+                + "<strong>Tweet:</strong> " + d.parent.data.text
+                +"</span>");
 }
