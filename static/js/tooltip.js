@@ -7,7 +7,7 @@ function mouseover(d){
     Tooltip_tweet
       .style("opacity", 1)
       .html("<span><strong>Username</strong>: " + d.parent.data.screen_name + "<br>"
-                + "<strong>Created at</strong>: " + date.toLocaleString() + "<br>"
+                + "<strongpytho>Created at</strong>: " + date.toLocaleString() + "<br>"
                 + "<strong>Tweet:</strong> " + d.parent.data.text
                 +"</span>");
 }

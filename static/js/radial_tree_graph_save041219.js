@@ -21,13 +21,13 @@ var svg = d3.select(".tree_graph")
               .attr("class", 'node root');
 
 
-var tip = d3.tip()
-            .attr('class', 'd3-tip')
-            // .offset([-tip_height_offset+10, 0])
-            .html(function(d) {return "<strong>" + d.id +"</strong>;"});
+// var tip = d3.tip()
+//             .attr('class', 'd3-tip')
+//             // .offset([-tip_height_offset+10, 0])
+//             .html(function(d) {return "<strong>" + d.id +"</strong>;"});
 
 
-svg.call(tip);
+// svg.call(tip);
 // svg.call(zoom);
 svg.on('contextmenu',function(){
 

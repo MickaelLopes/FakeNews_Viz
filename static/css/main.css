@@ -3,6 +3,58 @@
     height: 100vh;
     display: flex;
     flex-direction: row;
-    background-color: #000000;
+    background-color: black;
+}
+
+.tweet_graph{
+    height: 100%;
+    width: 60%;
+    background: black;
+}
+
+
+.right_panel{
+  height: 100%;
+  width: 40%;
+  background-color: red;
+  display : flex;
+  flex-direction:column;
+}
+
+/*Histogram css*/
+.histogram_graph{
+    width: 95%;
+    height: 40%;
+    background-color: blue;
+    /*margin: 10px 20px 20px 20px;*/
+}
+
+/* News info */
+.news_info{
+  width: 100%;
+  height: 30%;
+  border: thick double green;
+  background-color: purple;
+  font-size: 1.5ex;
+}
+
+[class*="col-"] {
+  border: thick double blue;
+  height: 100%
+}
+
+.row{
+  height: auto;
+}
+
+.row-large{
+  height: auto;
+  overflow: hidden;
+}
+
+
+.text_news{
+  height: 100%;
+  overflow:auto;
 }
 

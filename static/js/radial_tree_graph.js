@@ -62,7 +62,6 @@ var circular_tree = d3.tree()
 
 function draw_radial_tree_graph(data){
 
-  console.log(data)
   var root = circular_tree(stratify(data));
 
   node_root = root.descendants().filter(function(d) {return d.depth == 0}).pop();

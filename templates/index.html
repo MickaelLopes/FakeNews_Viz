@@ -5,6 +5,7 @@
   <link rel="stylesheet" type="text/css" href="/static/css/main.css">
   <link rel="stylesheet" type="text/css" href="/static/css/tree_graph.css">
   <link rel="stylesheet" type="text/css" href="/static/css/info.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="https://d3js.org/d3.v4.js"></script>
   <script src="/static/js/d3-tip.js"></script>
@@ -13,24 +14,103 @@
 
 <body oncontextmenu="return false;">
 
-<div class='main_block'>
-  <div>
-    <svg class='tree_graph'></svg>
-  </div>
-  <div class="info">
-    <div class="node_info_box" class="node_info">
-      <header><span>Current Node Info</span></header>
-      <div class="box_info">
-      <div id="node_tip_info" class="node_info"></div>
+  <div class='main_block'>
+    <div class="tweet_graph">
+      <svg class='tree_graph'></svg>
+    </div>
+    <div class = "right_panel">
+      <svg class = "histogram_graph"></svg>
+      <div class="container-fluid d-flex flex-column news_info">
+        <div class="row">
+          <div class="pl-1 col-2 overflow-auto">
+            Title
+          </div>
+          <div class="pl-1 col-10 title_news text-truncate">
+            the title ..
+          </div>
+        </div>
+        <div class="row row-normal">
+          <div class="pl-1 col-3">
+              Published on:
+          </div>
+          <div class="pl-1 col-4 publish_date_news">
+              3 january ...
+          </div>
+          <div class="pl-1 col-4">
+              Link
+          </div>
+        </div>
+        <div class="row row-normal">
+          <div class="p-0 pl-1 col-4">
+              Article:
+          </div>
+        </div>
+        <div class="row row-large">
+          <div class="plr-1 col-12 text_news">
+              <p>
+              go
+              </p>
+          </div>
+        </div>
+      </div>
+<!--       <div class ="container news_info">
+        <div class="row row-normal">
+          <div class="col-2">
+              Title :
+          </div>
+          <div class="col-10">
+              DA
+          </div>
+        </div>
+        <div class="row row-normal">
+          <div class="col-4">
+              Published on:
+          </div>
+          <div class="col-4">
+              3 january ...
+          </div>
+          <div class="col-4">
+              Link
+          </div>
+        </div>
+        <div class="row row-normal">
+          <div class="col-4">
+              Article:
+          </div>
+        </div>
+        <div class="row row-large">
+          <div class="col-12">
+            Long text
+          </div>
+        </div>
+      </div> -->
+      <!-- <div class="news_info">
+        <div class="title_news"></div>
+        <div class="link_news"></div>
+        <div class="publish_date_news"></div>
+        <div class="text_news"></div>
+      </div>-->
+      <div class="info">
+        <div class="node_info_box" class="node_info">
+          <header><span>Current Node Info</span></header>
+          <div class="box_info">
+            <div id="node_tip_info" class="node_info"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<script type="text/javascript" src="/static/js/main.js"></script>
-<script type="text/javascript" src="/static/js/radial_tree_graph.js"></script>
-<script type="text/javascript" src="/static/js/linear_tree_graph.js"></script>
-<script type="text/javascript" src="/static/js/tooltip.js"></script>
+  <script type="text/javascript" src="/static/js/histogram.js"></script>
+  <script type="text/javascript" src="/static/js/main.js"></script>
+  <script type="text/javascript" src="/static/js/radial_tree_graph.js"></script>
+  <script type="text/javascript" src="/static/js/linear_tree_graph.js"></script>
+  <script type="text/javascript" src="/static/js/tooltip.js"></script>
+  <script type="text/javascript" src="/static/js/news_info.js"></script>
+  <!-- Bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 </html>
 
