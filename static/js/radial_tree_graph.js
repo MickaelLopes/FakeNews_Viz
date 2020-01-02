@@ -38,7 +38,7 @@ var stratify = d3.stratify()
       if (d.parent == ""){
         return undefined;
       }else {
-        return d.parent;
+        return d.parent.toString();
       }
     })
     .id(function(d){
