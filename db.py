@@ -18,8 +18,10 @@ tweets_col = json.loads(dumps(tweets_col.find_one({"_id":news_id})))
 print(tweets_col)
 
 # When working in database connection - save file to be loaded in main.js
+"""
 with open(f'{news_id}.json', 'w') as json_file:
     json.dump(col_results, json_file)
 
 with open(f't_{news_id}.json', 'w') as json_file2:
     json.dump(tweets_col, json_file2)
+"""
