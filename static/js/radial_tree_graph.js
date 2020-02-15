@@ -167,7 +167,7 @@ function highlight_path(d, level){
       .selectAll('.link')
       .style("stroke",path_highlight_color)
       .style("stroke-opacity","0.9")
-      .style("stroke-width","2px");
+      .style("stroke-width","1.5px");
   d3.select(target_class)
       .selectAll('circle')
       .attr("r", 5)
@@ -184,8 +184,8 @@ function unhighlight_path(d, level){
   d3.select(target_class)
       .selectAll('.link')
       .style("stroke",path_default_color)
-      .style("stroke-opacity","0.4")
-      .style("stroke-width","1.5px");
+      .style("stroke-opacity","0.9")
+      .style("stroke-width","2.5px");
   d3.select(target_class)
       .selectAll('circle')
       .attr("r", 2.5)

@@ -36,6 +36,7 @@
   border: thick double green;
   background-color: purple;
   font-size: 1.5ex;
+  color : white;
 }
 
 [class*="col-"] {
@@ -58,3 +59,11 @@
   overflow:auto;
 }
 
+
+.tick line{
+  stroke: white;
+}
+
+.tick text{
+  fill : white;
+}
